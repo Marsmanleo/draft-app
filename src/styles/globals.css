@@ -165,7 +165,7 @@
   --app-zoom: 1;
 }
 
-html[data-chrome="borderless"] .terax-bg-surface {
+html[data-chrome="borderless"] .draft-bg-surface {
   border-radius: 12px;
 }
 .zoom-content {
@@ -325,7 +325,7 @@ html *::-webkit-scrollbar {
   --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes terax-collapsible-down {
+@keyframes draft-collapsible-down {
   from {
     height: 0;
     opacity: 0;
@@ -336,7 +336,7 @@ html *::-webkit-scrollbar {
   }
 }
 
-@keyframes terax-collapsible-up {
+@keyframes draft-collapsible-up {
   from {
     height: var(--radix-collapsible-content-height);
     opacity: 1;
@@ -347,20 +347,20 @@ html *::-webkit-scrollbar {
   }
 }
 
-.terax-collapsible-content {
+.draft-collapsible-content {
   overflow: hidden;
 }
-.terax-collapsible-content[data-state="open"] {
-  animation: terax-collapsible-down var(--dur-base) var(--ease-soft);
+.draft-collapsible-content[data-state="open"] {
+  animation: draft-collapsible-down var(--dur-base) var(--ease-soft);
 }
-.terax-collapsible-content[data-state="closed"] {
-  animation: terax-collapsible-up var(--dur-base) var(--ease-soft);
+.draft-collapsible-content[data-state="closed"] {
+  animation: draft-collapsible-up var(--dur-base) var(--ease-soft);
 }
 
 /* Height auto<->0 reveal without JS measuring: animate the grid track from 0fr
  * to 1fr. The inner child must be the sole grid row with min-height:0. Used by
  * the docked AI input bar and the composer voice-status row. */
-.terax-reveal {
+.draft-reveal {
   display: grid;
   grid-template-rows: 0fr;
   transition:
@@ -368,16 +368,16 @@ html *::-webkit-scrollbar {
     opacity var(--dur-base) var(--ease-premium);
   opacity: 0;
 }
-.terax-reveal[data-state="open"] {
+.draft-reveal[data-state="open"] {
   grid-template-rows: 1fr;
   opacity: 1;
 }
-.terax-reveal > * {
+.draft-reveal > * {
   min-height: 0;
   overflow: hidden;
 }
 
-@keyframes terax-panel-in {
+@keyframes draft-panel-in {
   from {
     opacity: 0;
     transform: translateX(-40px);
@@ -387,11 +387,11 @@ html *::-webkit-scrollbar {
     transform: translateX(0);
   }
 }
-.terax-panel-in {
-  animation: terax-panel-in var(--dur-slow) var(--ease-premium);
+.draft-panel-in {
+  animation: draft-panel-in var(--dur-slow) var(--ease-premium);
 }
 
-@keyframes terax-tab-in {
+@keyframes draft-tab-in {
   from {
     opacity: 0;
     transform: scale(0.86);
@@ -401,13 +401,13 @@ html *::-webkit-scrollbar {
     transform: scale(1);
   }
 }
-.terax-tab-in {
-  animation: terax-tab-in var(--dur-base) var(--ease-premium);
+.draft-tab-in {
+  animation: draft-tab-in var(--dur-base) var(--ease-premium);
 }
 
 /* Text shimmer loop (replaces motion background-position animation). Driven by
  * --shimmer-duration / --shimmer-spread set inline per instance. */
-@keyframes terax-shimmer {
+@keyframes draft-shimmer {
   from {
     background-position: 100% center;
   }
@@ -415,7 +415,7 @@ html *::-webkit-scrollbar {
     background-position: 0% center;
   }
 }
-.terax-shimmer {
+.draft-shimmer {
   background-repeat: no-repeat, padding-box;
   background-size:
     250% 100%,
@@ -431,7 +431,7 @@ html *::-webkit-scrollbar {
       var(--color-muted-foreground),
       var(--color-muted-foreground)
     );
-  animation: terax-shimmer var(--shimmer-duration, 2s) linear infinite;
+  animation: draft-shimmer var(--shimmer-duration, 2s) linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -440,10 +440,10 @@ html *::-webkit-scrollbar {
     --dur-base: 0.01ms;
     --dur-slow: 0.01ms;
   }
-  .terax-reveal {
+  .draft-reveal {
     transition: none;
   }
-  .terax-shimmer {
+  .draft-shimmer {
     animation: none;
     background-position: 0% center;
   }

@@ -226,7 +226,7 @@ export const EditorPane = forwardRef<EditorPaneHandle, Props>(
       if (doc.status !== "ready") return;
       let cancelled = false;
       const resolve = async (): Promise<Extension> => {
-        if (path.toLowerCase().endsWith(".terax-theme")) {
+        if (path.toLowerCase().endsWith(".draft-theme")) {
           const [{ json }, { colorSwatches }] = await Promise.all([
             import("@codemirror/lang-json"),
             import("./lib/colorSwatches"),
